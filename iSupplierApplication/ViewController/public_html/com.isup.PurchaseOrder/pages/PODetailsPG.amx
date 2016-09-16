@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:panelGroupLayout id="pgl1" layout="horizontal">
+        <amx:commandLink text="" id="cl1" action="PODetailsToPOHeaders">
+          <amx:image id="i1" source="/resources/images/Back.jpg"/>
+        </amx:commandLink>
+        <amx:outputText value="PO Details" id="ot1"/>
+        <amx:commandLink text="" id="cl2" action="PODetailsToReturn">
+          <amx:image id="i2" source="/resources/images/Home.jpg"/>
+        </amx:commandLink>
+      </amx:panelGroupLayout>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="cb1"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb2"/>
+    </amx:facet>
+  </amx:panelPage>
+</amx:view>

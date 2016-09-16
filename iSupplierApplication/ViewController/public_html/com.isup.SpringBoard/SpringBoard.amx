@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1" inlineStyle="border-color:Black;">
+    <amx:panelGroupLayout id="pgl1" layout="horizontal" inlineStyle="background-color:Black;">
+      <amx:spacer id="s3" width="20"/>
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" text=""
+                       disabled="#{!bindings.toggleSpringboard.enabled}" id="cl2">
+        <amx:image id="i2" source="/resources/images/Back.jpg" rendered="false"/>
+        <amx:outputHtml id="oh1" inlineStyle="color:White;" styleClass="fa fa-arrow-left fa-2x"/>
+      </amx:commandLink>
+      <amx:spacer id="s1" width="40"/>
+      <amx:image id="i1" source="/resources/images/Profile.jpg" rendered="false"/>
+      <amx:outputHtml id="oh2" styleClass="fa fa-user fa-2x" inlineStyle="color:White;"/>
+      <amx:spacer id="s2" width="10"/>
+      <amx:outputText value="#{securityContext.userName}" id="ot1" inlineStyle="color:White;"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl2" styleClass="panelThickLine"/>
+    <amx:listView var="row" value="#{bindings.features.collectionModel}" fetchSize="#{bindings.features.rangeSize}"
+                  selectedRowKeys="#{bindings.features.collectionModel.selectedRow}"
+                  initialScrollRowKeys="#{bindings.features.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.features.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1">
+      <amx:listItem actionListener="#{bindings.resetFeature.execute}" id="li2"
+                    inlineStyle="border-bottom-width:thin; border-bottom-style:solid; border-bottom-color:#86bc25;">
+        <amx:tableLayout id="tl1">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1">
+              <amx:image id="i3" source="#{row.image}"/>
+              <!--<amx:commandLink actionListener="#{bindings.gotoFeature.execute}" text=""
+                               disabled="#{!bindings.gotoFeature.enabled}" id="cl1"/>-->
+            </amx:cellFormat>
+            <amx:cellFormat id="cf2" inlineStyle="width:10px;"/>
+            <amx:cellFormat id="cf3">
+              <amx:outputText value="#{row.name}" id="ot3"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener id="spl1" from="#{row.id}" to="#{pageFlowScope.featureId}" type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

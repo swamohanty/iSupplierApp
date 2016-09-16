@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="iSupplierApplication" id="com.company.iSupplierApplication"
+                   appControllerFolder="ApplicationController"
+                   listener-class="oracle.maf.impl.cdm.lifecycle.InitDBLifeCycleListener">
+  <adfmf:featureReference refId="com.isup.Home" id="fr1" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="com.isup.SpringBoard" id="fr2" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="com.isup.Search" id="fr3"/>
+  <adfmf:featureReference refId="com.isup.Notification" id="fr4"/>
+  <adfmf:featureReference refId="com.isup.PurchaseOrders" id="fr5"/>
+  <adfmf:featureReference refId="com.isup.Invoices" id="fr6"/>
+  <adfmf:featureReference refId="com.isup.Settings" id="fr7"/>
+  <adfmf:featureReference refId="com.isup.AboutUs" id="fr8"/>
+  <adfmf:featureReference refId="com.isup.SignOut" id="fr9"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" width="300" showSpringboardAtStartup="false"
+                       displayGotoSpringboardControl="false">
+      <adfmf:springboardFeatureReference refId="com.isup.SpringBoard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="iSupAppSecurity">
+    <adfmf:localHTML url="Login.html"/>
+  </adfmf:login>
+</adfmf:application>

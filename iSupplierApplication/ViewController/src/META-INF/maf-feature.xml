@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="com.isup.Home" name="Home" securityEnabled="true">
+    <adfmf:content id="com.isup.Home.1">
+      <adfmf:amx file="com.isup.Home/HomeTF.xml#HomeTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.SpringBoard" name="SpringBoard">
+    <adfmf:content id="com.isup.SpringBoard.1">
+      <adfmf:amx file="com.isup.SpringBoard/SpringBoard.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.Search" name="Search" image="resources/images/Search.jpg">
+    <adfmf:content id="com.isup.Search.1" image="resources/images/Search.jpg">
+      <adfmf:amx file="com.isup.Home/pages/SearchPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.Notification" name="Notifications" image="resources/images/Notification.jpg">
+    <adfmf:content id="com.isup.Notification.1" image="resources/images/Notification.jpg">
+      <adfmf:amx file="com.isup.Notification/pages/NotificationPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.PurchaseOrders" name="Orders" image="resources/images/PurchaseOrder.jpg">
+    <adfmf:content id="com.isup.PurchaseOrders.1" image="resources/images/PurchaseOrder.jpg">
+      <adfmf:amx file="com.isup.PurchaseOrder/PurchaseOrderTF.xml#PurchaseOrderTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.Invoices" name="Invoices" image="resources/images/Invoices.jpg">
+    <adfmf:content id="com.isup.Invoices.1" image="resources/images/Invoices.jpg">
+      <adfmf:amx file="com.isup.Invoices/pages/Invoices.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.Settings" name="Settings" image="resources/images/Settings.jpg">
+    <adfmf:content id="com.isup.Settings.1" image="resources/images/Settings.jpg">
+      <adfmf:amx file="com.isup.Home/pages/SettingsPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.AboutUs" name="About Us" image="resources/images/AboutUs.jpg">
+    <adfmf:content id="com.isup.AboutUs.1" image="resources/images/AboutUs.jpg">
+      <adfmf:amx file="com.isup.Home/pages/AboutUsPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.isup.SignOut" name="Sign Out" image="resources/images/AboutUs.jpg">
+    <adfmf:content id="com.isup.SignOut.1" image="resources/images/SignOut.jpg">
+      <adfmf:remoteURL connection="EBSLogOut"/>
+    </adfmf:content>
+  </adfmf:feature>
+</adfmf:features>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.1.20" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/com.isup.SpringBoard/SpringBoard.amx" usageId="mobile_SpringBoardPageDef"/>
+    <page path="/com.isup.Home/pages/LandingPG.amx" usageId="mobile_LandingPGPageDef"/>
+    <page path="/com.isup.Notification/pages/NotificationPG.amx" usageId="mobile_NotificationPGPageDef"/>
+    <page path="/com.isup.PurchaseOrder/pages/POHeadersPG.amx" usageId="mobile_POHeadersPGPageDef"/>
+    <page path="/com.isup.Home/HomeTF.xml#HomeTF@findAllXxNotifications"
+          usageId="mobile_HomeTF_HomeTF_findAllXxNotificationsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_SpringBoardPageDef" path="com.isup.SpringBoard.SpringBoardPageDef"/>
+    <page id="mobile_LandingPGPageDef" path="com.isup.Home.pages.LandingPGPageDef"/>
+    <page id="mobile_NotificationPGPageDef" path="com.isup.Notification.pages.NotificationPGPageDef"/>
+    <page id="mobile_POHeadersPGPageDef" path="com.isup.PurchaseOrder.pages.POHeadersPGPageDef"/>
+    <page id="mobile_HomeTF_HomeTF_findAllXxNotificationsPageDef"
+          path="com.isup.Home.HomeTF_HomeTF_findAllXxNotificationsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="XxNotificationsDC" path="application.XxNotificationsDC"/>
+    <dc id="XxGetPoheaderDC" path="application.XxGetPoheaderDC"/>
+    <dc id="XxGetNotificationsDC" path="application.XxGetNotificationsDC"/>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

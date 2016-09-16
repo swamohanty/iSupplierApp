@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:panelGroupLayout id="pgl1" layout="horizontal"
+                          inlineStyle="background-color:Black; background-attachment:fixed;">
+      <amx:commandLink text="" id="cl1" action="HeraderToReturn">
+        <amx:image id="i1" source="/resources/images/SpringBoard.jpg"/>
+      </amx:commandLink>
+      <amx:spacer id="s1" width="40"/>
+      <amx:outputText value="Purchase Orders" id="ot1" inlineStyle="color:White;"/>
+      <amx:spacer id="s2" width="40"/>
+      <amx:commandLink actionListener="#{bindings.gotoFeature.execute}" text=""
+                       disabled="#{!bindings.gotoFeature.enabled}" id="cl3">
+        <amx:image id="i2" source="/resources/images/Home.jpg"/>
+      </amx:commandLink>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl3" styleClass="panelThickLine"/>
+    <amx:panelGroupLayout id="pgl2">
+      <amx:listView var="row" value="#{bindings.xxGetPoheaderdetailsItem.collectionModel}"
+                    fetchSize="#{bindings.xxGetPoheaderdetailsItem.rangeSize}"
+                    selectedRowKeys="#{bindings.xxGetPoheaderdetailsItem.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.xxGetPoheaderdetailsItem.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.xxGetPoheaderdetailsItem.collectionModel.makeCurrent}"
+                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+        <amx:listItem id="li1" styleClass="listThinLine">
+          <amx:panelGroupLayout id="pgl4" layout="horizontal">
+            <amx:outputText value="#{row.poSegment1}" id="ot3"/>
+            <amx:outputText value="#{row.poAmount}" id="ot7"/>
+            <amx:outputHtml id="oh1" styleClass="fa fa-angle-right fa-lg"/>
+          </amx:panelGroupLayout>
+          <amx:panelGroupLayout id="pgl5">
+            <amx:outputText value="#{row.poOu}" id="ot4"/>
+            <amx:outputText value="#{row.poDate}" id="ot8"/>
+          </amx:panelGroupLayout>
+          <amx:outputText value="#{row.poHeaderId}" id="ot2" rendered="false"/>
+          <amx:outputText value="#{row.poBuyerName}" id="ot5"/>
+          <amx:outputText value="#{row.poStatus}" id="ot6"/>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

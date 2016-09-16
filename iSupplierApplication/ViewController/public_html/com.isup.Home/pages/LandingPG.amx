@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:panelGroupLayout id="pgl14" layout="horizontal" inlineStyle="background-color:Black;" valign="middle">
+      <amx:spacer id="s9" width="20"/>
+      <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" text=""
+                       disabled="#{!bindings.gotoSpringboard.enabled}" id="cl1">
+        <amx:image id="i8" source="/resources/images/SpringBoard.jpg" rendered="false"/>
+        <amx:outputHtml id="oh4" styleClass="fa fa fa-navicon fa-2x" inlineStyle="color:White;"/>
+      </amx:commandLink>
+      <amx:spacer id="s7" width="40"/>
+      <amx:outputHtml id="oh5" styleClass="fa fa-user fa-2x" inlineStyle="color:White;"/>
+      <amx:image id="i9" source="/resources/images/Profile.jpg" rendered="false"/>
+      <amx:spacer id="s8" width="10"/>
+      <amx:outputText value="#{securityContext.userName}" id="ot1" inlineStyle="font-size:large; color:White;"/>
+      <amx:spacer id="s10" height="20"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl2" styleClass="panelThickLine"/>
+    <amx:panelGroupLayout id="pgl13" layout="horizontal" halign="center" valign="middle" inlineStyle="height:30px;">
+      <amx:spacer id="s11" height="10"/>
+      <amx:outputText value="Last Visited 27th Jul 2016, 12:00:21 IST" id="ot2"
+                      inlineStyle="font-size:medium; color:#666666; position:center;"/>
+      <amx:spacer id="s12" height="10"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl1" styleClass="panelThickLine"/>
+    <amx:spacer id="s3" height="25"/>
+    <amx:panelGroupLayout id="pgl4" halign="center">
+      <amx:commandLink id="cl5" action="LandingToNotification">
+        <amx:outputHtml id="oh3" styleClass="fa fa-envelope fa-2x" inlineStyle="color:#86bc25;"/>
+        <amx:setPropertyListener id="spl1" from="N" to="#{pageFlowScope.Flag}"/>
+        <amx:setPropertyListener id="spl2" from="All%20Notifications" to="#{pageFlowScope.NotifTyp}"/>
+      </amx:commandLink>
+      <amx:outputText value="0 new notification since last login." id="ot6" rendered="false"/>
+      <amx:outputText value="20" id="ot4" styleClass="otAlert"/>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s2" height="35"/>
+    <amx:panelGroupLayout id="pgl3" styleClass="panelThinLine"/>
+    <amx:spacer id="s4" height="25"/>
+    <amx:panelGroupLayout id="pgl5" halign="center">
+      <amx:commandLink id="cl6" action="LandingToPO">
+        <amx:image id="i6" source="/resources/images/PurchaseOrder.jpg" rendered="false"/>
+        <amx:outputHtml id="oh1" styleClass="fa fa-folder fa-2x" inlineStyle="color:#86bc25;"/>
+      </amx:commandLink>
+      <amx:outputText value="10" id="ot3" styleClass="otAlert"/>
+      <amx:outputText value="0 new orders since last login." id="ot7" rendered="false"/>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s1" height="35"/>
+    <amx:panelGroupLayout id="pgl7" styleClass="panelThinLine"/>
+    <amx:spacer id="s5" height="25"/>
+    <amx:panelGroupLayout id="pgl6" halign="center">
+      <amx:commandLink text="" id="cl7">
+        <amx:image id="i7" source="/resources/images/Invoices.jpg" rendered="false"/>
+        <amx:outputHtml id="oh2" styleClass="fa fa-wpforms fa-2x" inlineStyle="color:#86bc25;"/>
+      </amx:commandLink>
+      <amx:outputText value="0 new invoices since last login." id="ot8" rendered="false"/>
+      <amx:outputText value="30" id="ot5" styleClass="otAlert"/>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s6" height="35"/>
+    <amx:panelGroupLayout id="pgl8" styleClass="panelThinLine"/>
+  </amx:panelPage>
+</amx:view>

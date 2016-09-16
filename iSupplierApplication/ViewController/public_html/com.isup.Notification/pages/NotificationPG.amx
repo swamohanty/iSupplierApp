@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:panelGroupLayout id="pgl1" halign="center" layout="horizontal" inlineStyle="background-color:Black;"
+                          scrollPolicy="none">
+      <amx:commandLink text="" id="cl2" action="NotificationToLanding">
+        <amx:image id="i2" source="/resources/images/SpringBoard.jpg"/>
+      </amx:commandLink>
+      <amx:spacer id="s1" width="50"/>
+      <amx:outputText value="Notifications" id="ot1" inlineStyle="color:White;"/>
+      <amx:spacer id="s2" width="50"/>
+      <amx:commandLink actionListener="#{bindings.gotoFeature.execute}" text=""
+                       disabled="#{!bindings.gotoFeature.enabled}" id="cl3">
+        <amx:image id="i1" source="/resources/images/Home.jpg"/>
+      </amx:commandLink>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="pgl6" styleClass="panelThickLine"/>
+    <amx:spacer id="s6" height="3"/>
+    <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
+      <amx:selectOneChoice label="View" id="soc1" value="#{pageFlowScope.NotifTyp}" styleClass="selectItemsContainer">
+        <amx:selectItem label="All Notifications" id="si4" value="All%20Notifications"/>
+        <amx:selectItem id="si1" label="FYI Notifications" value="FYI%20Notifications"/>
+        <amx:selectItem label="Notifications From Me" id="si2" value="Notifications%20From%20Me"/>
+        <amx:selectItem label="Open Notifications" id="si3" value="Open%20Notifications"/>
+        <amx:selectItem label="To Do Notifications" id="si5" value="To%20Do%20Notifications"/>
+      </amx:selectOneChoice>
+      <amx:spacer id="s8" width="10"/>
+      <amx:commandButton actionListener="#{bindings.findAllXxNotifications.execute}" text="Go"
+                         disabled="#{!bindings.findAllXxNotifications.enabled}" id="cb2" styleClass="goButtonSel"/>
+    </amx:panelGroupLayout>
+    <amx:tableLayout id="tl3" width="85%" halign="center" rendered="false">
+      <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf7" halign="start" width="120%"/>
+        <amx:cellFormat id="cf8" halign="end"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s7" height="3"/>
+    <amx:panelGroupLayout id="pgl9" styleClass="panelThinLine"/>
+    <amx:panelGroupLayout id="pgl3">
+      <amx:listView var="row" value="#{bindings.xxNotifications.collectionModel}"
+                    fetchSize="#{bindings.xxNotifications.rangeSize}"
+                    selectedRowKeys="#{bindings.xxNotifications.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.xxNotifications.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.xxNotifications.collectionModel.makeCurrent}"
+                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+        <amx:listItem id="li1"
+                      inlineStyle="border-bottom-width:thin; border-bottom-style:solid; border-bottom-color:#86bc25">
+          <amx:tableLayout id="tl1" width="90%" halign="center">
+            <amx:rowLayout id="rl5">
+              <amx:cellFormat id="cf6">
+                <amx:spacer id="s5" height="3"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf1" halign="start">
+                <amx:outputText value="#{row.fromUser}" id="ot2"
+                                inlineStyle="font-family:Roboto-Light; font-size:large;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf2" halign="end">
+                <amx:outputText value="#{row.notifDate}" id="ot3"
+                                inlineStyle="font-family:Roboto-Light; font-size:medium;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl3">
+              <amx:cellFormat id="cf4">
+                <amx:spacer id="s3" height="5"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:tableLayout id="tl2" width="90%" halign="center">
+            <amx:rowLayout id="rl2">
+              <amx:cellFormat id="cf3" width="100%">
+                <amx:outputText value="#{row.subject}" id="ot4"
+                                inlineStyle="overflow-wrap:break-word; font-family:Roboto-Regular; font-size:medium; white-space:normal; color:Gray;"
+                                rendered="true"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl4">
+              <amx:cellFormat id="cf5">
+                <amx:spacer id="s4" height="3"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

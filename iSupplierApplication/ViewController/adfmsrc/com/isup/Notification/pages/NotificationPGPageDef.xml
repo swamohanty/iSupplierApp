@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="NotificationPGPageDef"
+                Package="com.isup.Notification.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="XxNotificationsDC" id="XxNotificationsDCIterator"/>
+    <accessorIterator MasterBinding="XxNotificationsDCIterator" Binds="xxNotifications" RangeSize="25"
+                      DataControl="XxNotificationsDC" BeanClass="application.model.XxNotifications"
+                      id="xxNotificationsIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDValue="com.isup.Home" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="xxNotificationsIterator" id="xxNotifications">
+      <nodeDefinition DefName="application.model.XxNotifications" Name="xxNotifications0">
+        <AttrNames>
+          <Item Value="fromUser"/>
+          <Item Value="notifDate"/>
+          <Item Value="subject"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="findAllXxNotifications" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findAllXxNotifications" IsViewObjectMethod="false" DataControl="XxNotificationsDC"
+                  InstanceName="data.XxNotificationsDC.dataProvider"/>
+  </bindings>
+</pageDefinition>

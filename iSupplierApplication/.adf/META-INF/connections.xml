@@ -1,0 +1,54 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="EBSLogOut" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="EBSLogOut">
+        <Contents>
+          <urlconnection name="EBSLogOut"
+                         url="http://ussltcsnl3433.solutions.glbsnet.com:8000/OA_HTML/RF.jsp?function_id=mLogout"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="iSupAppSecurity" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="iSupAppSecurity" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://ussltcsnl3433.solutions.glbsnet.com:8000/OA_HTML/RF.jsp?function_id=mLogin"/>
+          <logout url="http://ussltcsnl3433.solutions.glbsnet.com:8000/OA_HTML/RF.jsp?function_id=mLogout"/>
+          <stsModule/>
+          <stsEndpoint/>
+          <stsAppliesTo/>
+          <stsLifetime value="3600"/>
+          <authenticationMode value="hybrid"/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="true"/>
+            <rememberPasswordDefault value="true"/>
+            <enableStayLoggedIn value="true"/>
+            <stayLoggedInDefault value="true"/>
+          </rememberCredentials>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="iSupConn" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="iSupConn">
+        <Contents>
+          <restconnection name="iSupConn" url="http://ussltcsnl3432.solutions.glbsnet.com:7004"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

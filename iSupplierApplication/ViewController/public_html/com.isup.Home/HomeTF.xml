@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="HomeTF">
+    <default-activity>LandingPG</default-activity>
+    <view id="LandingPG">
+      <page>/com.isup.Home/pages/LandingPG.amx</page>
+    </view>
+    <view id="NotificationPG">
+      <page>/com.isup.Notification/pages/NotificationPG.amx</page>
+    </view>
+    <task-flow-call id="PurchaseOrderTF">
+      <task-flow-reference>
+        <document>/com.isup.PurchaseOrder/PurchaseOrderTF.xml</document>
+        <id>PurchaseOrderTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="findAllXxNotifications">
+      <method>#{bindings.findAllXxNotifications.execute}</method>
+      <outcome>
+        <fixed-outcome>findAllXxNotifications</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>LandingPG</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>LandingToNotification</from-outcome>
+        <to-activity-id>findAllXxNotifications</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>LandingToPO</from-outcome>
+        <to-activity-id>PurchaseOrderTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>NotificationPG</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>NotificationToPO</from-outcome>
+        <to-activity-id>PurchaseOrderTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>NotificationToLanding</from-outcome>
+        <to-activity-id>LandingPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>PurchaseOrderTF</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>returnToLanding</from-outcome>
+        <to-activity-id>LandingPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>findAllXxNotifications</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>findAllXxNotifications</from-outcome>
+        <to-activity-id>NotificationPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>
