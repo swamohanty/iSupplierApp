@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20"
+                id="PurchaseOrderTF_PurchaseOrderTF_findAllXxPoheaderPageDef" Package="com.isup.PurchaseOrder"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="findAllXxPoheader" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findAllXxPoheader"
+                  IsViewObjectMethod="false" DataControl="XxPoheaderDC" InstanceName="data.XxPoheaderDC.dataProvider"/>
+  </bindings>
+</pageDefinition>
