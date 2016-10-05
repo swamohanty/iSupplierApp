@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="PurchaseOrderTF">
-    <default-activity>POHeadersPG</default-activity>
+    <default-activity>findAllXxPoheader</default-activity>
     <view id="POHeadersPG">
       <page>/com.isup.PurchaseOrder/pages/POHeadersPG.amx</page>
     </view>
@@ -13,11 +13,23 @@
         <name>returnToLanding</name>
       </outcome>
     </task-flow-return>
+    <method-call id="findAllXxPoheader">
+      <method>#{bindings.findAllXxPoheader.execute}</method>
+      <outcome>
+        <fixed-outcome>findAllXxPoheader</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="findAllXxPoline">
+      <method>#{bindings.findAllXxPoline.execute}</method>
+      <outcome>
+        <fixed-outcome>findAllXxPoline</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>POHeadersPG</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>POHeadersToPODetails</from-outcome>
-        <to-activity-id>PODetailsPG</to-activity-id>
+        <to-activity-id>findAllXxPoline</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__3">
         <from-outcome>HeraderToReturn</from-outcome>
@@ -33,6 +45,20 @@
       <control-flow-case id="__6">
         <from-outcome>PODetailsToReturn</from-outcome>
         <to-activity-id>returnToLanding</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>findAllXxPoheader</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>findAllXxPoheader</from-outcome>
+        <to-activity-id>POHeadersPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>findAllXxPoline</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>findAllXxPoline</from-outcome>
+        <to-activity-id>PODetailsPG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

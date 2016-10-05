@@ -8,6 +8,11 @@
     <page path="/com.isup.PurchaseOrder/pages/POHeadersPG.amx" usageId="mobile_POHeadersPGPageDef"/>
     <page path="/com.isup.Home/HomeTF.xml#HomeTF@findAllXxNotifications"
           usageId="mobile_HomeTF_HomeTF_findAllXxNotificationsPageDef"/>
+    <page path="/com.isup.PurchaseOrder/PurchaseOrderTF.xml#PurchaseOrderTF@findAllXxPoheader"
+          usageId="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPoheaderPageDef"/>
+    <page path="/com.isup.PurchaseOrder/pages/PODetailsPG.amx" usageId="mobile_PODetailsPGPageDef"/>
+    <page path="/com.isup.PurchaseOrder/PurchaseOrderTF.xml#PurchaseOrderTF@findAllXxPoline"
+          usageId="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPolinePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_SpringBoardPageDef" path="com.isup.SpringBoard.SpringBoardPageDef"/>
@@ -16,8 +21,15 @@
     <page id="mobile_POHeadersPGPageDef" path="com.isup.PurchaseOrder.pages.POHeadersPGPageDef"/>
     <page id="mobile_HomeTF_HomeTF_findAllXxNotificationsPageDef"
           path="com.isup.Home.HomeTF_HomeTF_findAllXxNotificationsPageDef"/>
+    <page id="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPoheaderPageDef"
+          path="com.isup.PurchaseOrder.PurchaseOrderTF_PurchaseOrderTF_findAllXxPoheaderPageDef"/>
+    <page id="mobile_PODetailsPGPageDef" path="com.isup.PurchaseOrder.pages.PODetailsPGPageDef"/>
+    <page id="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPolinePageDef"
+          path="com.isup.PurchaseOrder.PurchaseOrderTF_PurchaseOrderTF_findAllXxPolinePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="XxPolineDC" path="application.XxPolineDC"/>
+    <dc id="XxPoheaderDC" path="application.XxPoheaderDC"/>
     <dc id="XxNotificationsDC" path="application.XxNotificationsDC"/>
     <dc id="XxGetPoheaderDC" path="application.XxGetPoheaderDC"/>
     <dc id="XxGetNotificationsDC" path="application.XxGetNotificationsDC"/>

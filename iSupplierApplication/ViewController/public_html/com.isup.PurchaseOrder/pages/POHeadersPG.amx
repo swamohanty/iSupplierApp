@@ -17,27 +17,75 @@
     </amx:panelGroupLayout>
     <amx:panelGroupLayout id="pgl3" styleClass="panelThickLine"/>
     <amx:panelGroupLayout id="pgl2">
-      <amx:listView var="row" value="#{bindings.xxGetPoheaderdetailsItem.collectionModel}"
-                    fetchSize="#{bindings.xxGetPoheaderdetailsItem.rangeSize}"
-                    selectedRowKeys="#{bindings.xxGetPoheaderdetailsItem.collectionModel.selectedRow}"
-                    initialScrollRowKeys="#{bindings.xxGetPoheaderdetailsItem.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.xxGetPoheaderdetailsItem.collectionModel.makeCurrent}"
-                    showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
-        <amx:listItem id="li1" styleClass="listThinLine">
-          <amx:panelGroupLayout id="pgl4" layout="horizontal">
-            <amx:outputText value="#{row.poSegment1}" id="ot3"/>
-            <amx:outputText value="#{row.poAmount}" id="ot7"/>
-            <amx:outputHtml id="oh1" styleClass="fa fa-angle-right fa-lg"/>
-          </amx:panelGroupLayout>
-          <amx:panelGroupLayout id="pgl5">
-            <amx:outputText value="#{row.poOu}" id="ot4"/>
-            <amx:outputText value="#{row.poDate}" id="ot8"/>
-          </amx:panelGroupLayout>
+      <amx:listView var="row" value="#{bindings.xxPoheader.collectionModel}"
+                    fetchSize="#{bindings.xxPoheader.rangeSize}"
+                    selectedRowKeys="#{bindings.xxPoheader.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.xxPoheader.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.xxPoheader.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                    bufferStrategy="viewport" id="lv1">
+        <amx:listItem id="li1" action="POHeadersToPODetails"
+                      inlineStyle="border-bottom-width:thin; border-bottom-style:solid; border-bottom-color:#86bc25">
+          <amx:spacer id="s3" height="5"/>
           <amx:outputText value="#{row.poHeaderId}" id="ot2" rendered="false"/>
-          <amx:outputText value="#{row.poBuyerName}" id="ot5"/>
-          <amx:outputText value="#{row.poStatus}" id="ot6"/>
+          <amx:tableLayout id="tl1" width="90%" halign="center">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf1" halign="start" inlineStyle="width:55%;">
+                <amx:panelGroupLayout id="pgl7">
+                  <amx:panelGroupLayout id="pgl5" layout="horizontal">
+                    <amx:outputText value="PO#" id="ot10" inlineStyle="font-size:large;"/>
+                    <amx:outputText value="#{row.poSegment1}" id="ot3" inlineStyle="font-size:large;"/>
+                  </amx:panelGroupLayout>
+                  <amx:outputText value="Operating Unit" id="ot12" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.poOu}" id="ot5"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf2" halign="start" inlineStyle="width:40%;">
+                <amx:panelGroupLayout id="pgl8">
+                  <amx:panelGroupLayout id="pgl6" layout="horizontal">
+                    <amx:outputText value="#{row.poCurrency}" id="ot4"/>
+                    <amx:outputText value="#{row.poAmount}" id="ot11"/>
+                  </amx:panelGroupLayout>
+                  <amx:outputText value="Date" id="ot13" inlineStyle="font-size:small; color:Gray;"/>
+                  <amx:outputText value="#{row.poDate}" id="ot6"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf3" halign="end">
+                <amx:outputHtml id="oh1" styleClass="fa fa-angle-right fa-lg"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl2" rendered="false">
+              <amx:cellFormat id="cf5" inlineStyle="width:60%;">
+                <amx:panelGroupLayout id="pgl9"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf7" inlineStyle="width:30%;">
+                <amx:panelGroupLayout id="pgl10"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl3" rendered="true">
+              <amx:cellFormat id="cf8" inlineStyle="width:90%;">
+                <amx:outputText value="Buyer" id="ot14" inlineStyle="color:Gray; font-size:small;"/>
+                <amx:outputText value="#{row.poBuyerName}" id="ot7"/>
+                <amx:spacer id="s4" height="5"/>
+                <amx:outputText value="Status" id="ot15" inlineStyle="color:Gray; font-size:small;"/>
+                <amx:outputText value="#{row.poStatus}" id="ot8"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:spacer id="s5" height="5"/>
+          <amx:setPropertyListener id="spl1" from="#{row.poHeaderId}" to="#{pageFlowScope.poHeaderID}" type="action"/>
+          <amx:showPopupBehavior id="spb1" popupId="p1" type="tapHold" align="startMiddle" alignId="li1"/>
         </amx:listItem>
       </amx:listView>
     </amx:panelGroupLayout>
   </amx:panelPage>
+  <amx:popup id="p1" inlineStyle="width:70%;">
+    <amx:panelGroupLayout id="pgl4" layout="vertical">
+      <amx:outputText value="Options" id="ot9" inlineStyle="font-size:small; color:Gray;"/>
+      <amx:commandButton text="Acknowledge" id="cb3" inlineStyle="color:Black;"/>
+      <amx:commandButton text="Request Change" id="cb2" inlineStyle="color:Black;"/>
+      <amx:commandButton text="Close" id="cb1" inlineStyle="color:Black;">
+        <amx:closePopupBehavior id="cpb1" popupId="p1" type="action"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
 </amx:view>

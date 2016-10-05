@@ -75,3 +75,24 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     color: #ffffff;
     font-size: medium;
 }
+
+.blueHeader > .amx-panelPage-header{
+    background-color: Black;
+    height: 54px;
+}
+
+.amx-commandButton.goWideButtonSel {
+    margin: 10px 5px 10px 5px;
+    border: 0;
+    padding: 9px 0px;
+    display: inline-block;
+    outline: 0;
+    width: 135px;
+    border-radius: 0px;
+    background: #86bc25; 
+    border: 2px solid #86bc25;
+    background-image: none;
+    font-family: Helvetica;
+    color: #ffffff;
+    font-size: medium;
+}

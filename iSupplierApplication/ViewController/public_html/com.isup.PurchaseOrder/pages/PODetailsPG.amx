@@ -1,23 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
+  <amx:panelPage id="pp1" styleClass="blueHeader">
     <amx:facet name="header">
-      <amx:panelGroupLayout id="pgl1" layout="horizontal">
-        <amx:commandLink text="" id="cl1" action="PODetailsToPOHeaders">
-          <amx:image id="i1" source="/resources/images/Back.jpg"/>
-        </amx:commandLink>
-        <amx:outputText value="PO Details" id="ot1"/>
-        <amx:commandLink text="" id="cl2" action="PODetailsToReturn">
-          <amx:image id="i2" source="/resources/images/Home.jpg"/>
-        </amx:commandLink>
+      <amx:panelGroupLayout id="pgl11" halign="center" layout="horizontal">
+        <amx:outputText value="Order # " id="ot1" inlineStyle="color:White;"/>
+        <amx:outputText value="#{bindings.poSegment1.inputValue}" id="ot20"/>
       </amx:panelGroupLayout>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
+      <amx:commandLink text="" id="cl1" action="PODetailsToPOHeaders">
+        <amx:image id="i1" source="/resources/images/Back.jpg"/>
+      </amx:commandLink>
     </amx:facet>
     <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
+      <amx:commandLink text="" id="cl2" action="PODetailsToReturn">
+        <amx:image id="i2" source="/resources/images/Home.jpg"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:panelGroupLayout id="pgl8" styleClass="panelThickLine"/>
+    <amx:panelGroupLayout id="pgl9"/>
+    <amx:panelGroupLayout id="pgl10" styleClass="panelThinLine"/>
+    <amx:panelGroupLayout id="pgl2">
+      <amx:outputText value="#{pageFlowScope.poHeaderID}" id="ot2" rendered="false"/>
+      <amx:listView var="row" value="#{bindings.xxPoline.collectionModel}" fetchSize="#{bindings.xxPoline.rangeSize}"
+                    selectedRowKeys="#{bindings.xxPoline.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.xxPoline.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.xxPoline.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                    bufferStrategy="viewport" id="lv1">
+        <amx:listItem id="li1"
+                      inlineStyle="border-bottom-width:thin; border-bottom-style:solid; border-bottom-color:#86bc25">
+          <amx:spacer id="s1" height="5"/>
+          <amx:outputText value="#{row.poHeaderId}" id="ot3" rendered="false"/>
+          <amx:tableLayout id="tl1" width="90%" halign="center">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf1" inlineStyle="width:50%;">
+                <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                  <amx:outputText value="Line# " id="ot12"/>
+                  <amx:outputText value="#{row.lineNum}" id="ot4"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf2" inlineStyle="width:50%;">
+                <amx:panelGroupLayout id="pgl3" layout="horizontal">
+                  <amx:outputText value="Line Type " id="ot13" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.lineType}" id="ot5"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:tableLayout id="tl2" width="90%" halign="center">
+            <amx:rowLayout id="rl3">
+              <amx:cellFormat id="cf6" inlineStyle="width:90%;">
+                <amx:panelGroupLayout id="pgl7">
+                  <amx:outputText value="Item" id="ot19" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.itemDescription}" id="ot6"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:tableLayout id="tl3" width="90%" halign="center">
+            <amx:rowLayout id="rl2">
+              <amx:cellFormat id="cf3" inlineStyle="width:40%;">
+                <amx:panelGroupLayout id="pgl4">
+                  <amx:outputText value="Quantity" id="ot14" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.qty}" id="ot7"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf4" inlineStyle="width:40%;">
+                <amx:panelGroupLayout id="pgl5">
+                  <amx:outputText value="UOM" id="ot15" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.uom}" id="ot8"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf5" inlineStyle="width:10%;">
+                <amx:panelGroupLayout id="pgl6">
+                  <amx:outputText value="Price" id="ot16" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.unitPrice}" id="ot9"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl4">
+              <amx:cellFormat id="cf7" inlineStyle="width:40%;">
+                <amx:panelGroupLayout id="pgl12">
+                  <amx:outputText value="Promised Date" id="ot17" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.promisedDate}" id="ot10"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf8">
+                <amx:panelGroupLayout id="pgl13">
+                  <amx:outputText value="Need by Date" id="ot18" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.needByDate}" id="ot11"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:spacer id="s2" height="5"/>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+    <amx:facet name="footer">
+      <amx:panelGroupLayout id="pgl14" layout="horizontal" halign="center" valign="middle">
+        <amx:commandButton text="Acknowledge" id="cb1" styleClass="goWideButtonSel"/>
+        <amx:commandButton text="Request Change" id="cb2" styleClass="goWideButtonSel"/>
+      </amx:panelGroupLayout>
     </amx:facet>
   </amx:panelPage>
 </amx:view>

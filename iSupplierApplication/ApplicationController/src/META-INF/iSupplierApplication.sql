@@ -6,6 +6,12 @@
 
  
 
+
+ 
+
+
+ 
+
 CREATE TABLE DATA_SYNCH_ACTIONS 
 (
       ID NUMERIC NOT NULL,

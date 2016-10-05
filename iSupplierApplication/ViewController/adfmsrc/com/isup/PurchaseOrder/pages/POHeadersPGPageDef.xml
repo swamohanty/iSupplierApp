@@ -4,10 +4,9 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="root" RangeSize="25" DataControl="XxGetPoheaderDC" id="XxGetPoheaderDCIterator"/>
-    <accessorIterator MasterBinding="XxGetPoheaderDCIterator" Binds="xxGetPoheaderdetailsItem" RangeSize="25"
-                      DataControl="XxGetPoheaderDC" BeanClass="application.model.XxGetPoheaderdetailsItem"
-                      id="xxGetPoheaderdetailsItemIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="XxPoheaderDC" id="XxPoheaderDCIterator"/>
+    <accessorIterator MasterBinding="XxPoheaderDCIterator" Binds="xxPoheader" RangeSize="25" DataControl="XxPoheaderDC"
+                      BeanClass="application.model.XxPoheader" id="xxPoheaderIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
@@ -15,19 +14,17 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="com.isup.Home" NDType="java.lang.String"/>
     </methodAction>
-    <tree IterBinding="xxGetPoheaderdetailsItemIterator" id="xxGetPoheaderdetailsItem">
-      <nodeDefinition DefName="application.model.XxGetPoheaderdetailsItem" Name="xxGetPoheaderdetailsItem0">
+    <tree IterBinding="xxPoheaderIterator" id="xxPoheader">
+      <nodeDefinition DefName="application.model.XxPoheader" Name="xxPoheader0">
         <AttrNames>
           <Item Value="poHeaderId"/>
-          <Item Value="isNewEntity"/>
-          <Item Value="key"/>
-          <Item Value="poAmount"/>
-          <Item Value="poBuyerName"/>
-          <Item Value="poCurrency"/>
-          <Item Value="poDate"/>
-          <Item Value="poOu"/>
           <Item Value="poSegment1"/>
+          <Item Value="poCurrency"/>
+          <Item Value="poOu"/>
+          <Item Value="poDate"/>
+          <Item Value="poBuyerName"/>
           <Item Value="poStatus"/>
+          <Item Value="poAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

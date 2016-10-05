@@ -41,6 +41,7 @@
       <amx:commandLink id="cl6" action="LandingToPO">
         <amx:image id="i6" source="/resources/images/PurchaseOrder.jpg" rendered="false"/>
         <amx:outputHtml id="oh1" styleClass="fa fa-folder fa-2x" inlineStyle="color:#86bc25;"/>
+        <amx:setPropertyListener id="spl3" to="#{applicationScope.poFlag}" from="N" type="action"/>
       </amx:commandLink>
       <amx:outputText value="10" id="ot3" styleClass="otAlert"/>
       <amx:outputText value="0 new orders since last login." id="ot7" rendered="false"/>
