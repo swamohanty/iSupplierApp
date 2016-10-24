@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1" styleClass="blueHeader">
+    <amx:facet name="header">
+      <amx:outputText value="Acknowledge Order #" id="ot1" inlineStyle="color:White;"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink id="cl1" action="POAcknowledgeToDetails">
+        <amx:outputHtml id="oh1" styleClass="fa fa-arrow-left fa-2x" inlineStyle="color:White;"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:facet name="secondary"/>
+    <amx:panelGroupLayout id="pgl3" styleClass="panelThickLine"/>
+    <amx:panelGroupLayout id="pgl2">
+      <amx:listView var="row" value="#{bindings.xxPoline.collectionModel}" fetchSize="#{bindings.xxPoline.rangeSize}"
+                    selectedRowKeys="#{bindings.xxPoline.collectionModel.selectedRow}"
+                    initialScrollRowKeys="#{bindings.xxPoline.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.xxPoline.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                    bufferStrategy="viewport" id="lv1">
+        <amx:listItem id="li1"
+                      inlineStyle="border-bottom-width:thin; border-bottom-style:solid; border-bottom-color:#86bc25">
+          <amx:outputText value="#{row.poHeaderId}" id="ot2" rendered="false"/>
+          <amx:spacer id="s1" height="5"/>
+          <amx:tableLayout id="tl1" width="90%" halign="center">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf1" inlineStyle="width:50%;">
+                <amx:panelGroupLayout id="pgl4" layout="horizontal">
+                  <amx:outputText value="Line# " id="ot5"/>
+                  <amx:outputText value="#{row.lineNum}" id="ot3"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf2" inlineStyle="width:50%;">
+                <amx:panelGroupLayout id="pgl5" layout="horizontal">
+                  <amx:outputText value="Line Type" id="ot6" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:spacer id="s3" width="5"/>
+                  <amx:outputText value="#{row.lineType}" id="ot4"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:tableLayout id="tl2" width="90%" halign="center">
+            <amx:rowLayout id="rl2">
+              <amx:cellFormat id="cf3">
+                <amx:panelGroupLayout id="pgl6">
+                  <amx:outputText value="Item" id="ot7" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.itemDescription}" id="ot8"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:tableLayout id="tl3" width="90%" halign="center">
+            <amx:rowLayout id="rl3">
+              <amx:cellFormat id="cf4" inlineStyle="width:40%;">
+                <amx:panelGroupLayout id="pgl7">
+                  <amx:outputText value="Quantity" id="ot9" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.qty}" id="ot12"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf5" inlineStyle="width:40%;">
+                <amx:panelGroupLayout id="pgl8">
+                  <amx:outputText value="UOM" id="ot10" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.uom}" id="ot13"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf6" inlineStyle="width:10%;">
+                <amx:panelGroupLayout id="pgl9">
+                  <amx:outputText value="Price" id="ot11" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:outputText value="#{row.unitPrice}" id="ot14"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:tableLayout id="tl4" width="90%" halign="center">
+            <amx:rowLayout id="rl4">
+              <amx:cellFormat id="cf7">
+                <amx:panelGroupLayout id="pgl10" layout="horizontal">
+                  <amx:outputText value="Reason" id="ot15" inlineStyle="color:Gray; font-size:small;"/>
+                  <amx:inputText id="it1"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:spacer id="s2" height="5"/>
+        </amx:listItem>
+      </amx:listView>
+    </amx:panelGroupLayout>
+    <amx:facet name="footer">
+      <amx:panelGroupLayout id="pgl1" layout="horizontal" halign="center" valign="middle">
+        <amx:commandButton text="Accept Entire Order" id="cb3"/>
+        <amx:commandButton text="Reject Entire Order" id="cb4"/>
+      </amx:panelGroupLayout>
+    </amx:facet>
+  </amx:panelPage>
+</amx:view>

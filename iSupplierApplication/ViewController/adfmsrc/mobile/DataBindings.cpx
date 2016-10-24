@@ -13,6 +13,9 @@
     <page path="/com.isup.PurchaseOrder/pages/PODetailsPG.amx" usageId="mobile_PODetailsPGPageDef"/>
     <page path="/com.isup.PurchaseOrder/PurchaseOrderTF.xml#PurchaseOrderTF@findAllXxPoline"
           usageId="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPolinePageDef"/>
+    <page path="/com.isup.PurchaseOrder/pages/POAcknowledgePG.amx" usageId="mobile_POAcknowledgePGPageDef"/>
+    <page path="/com.isup.PurchaseOrder/PurchaseOrderTF.xml#PurchaseOrderTF@findAllXxPoline1"
+          usageId="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPoline1PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_SpringBoardPageDef" path="com.isup.SpringBoard.SpringBoardPageDef"/>
@@ -26,6 +29,9 @@
     <page id="mobile_PODetailsPGPageDef" path="com.isup.PurchaseOrder.pages.PODetailsPGPageDef"/>
     <page id="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPolinePageDef"
           path="com.isup.PurchaseOrder.PurchaseOrderTF_PurchaseOrderTF_findAllXxPolinePageDef"/>
+    <page id="mobile_POAcknowledgePGPageDef" path="com.isup.PurchaseOrder.pages.POAcknowledgePGPageDef"/>
+    <page id="mobile_PurchaseOrderTF_PurchaseOrderTF_findAllXxPoline1PageDef"
+          path="com.isup.PurchaseOrder.PurchaseOrderTF_PurchaseOrderTF_findAllXxPoline1PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="XxPolineDC" path="application.XxPolineDC"/>

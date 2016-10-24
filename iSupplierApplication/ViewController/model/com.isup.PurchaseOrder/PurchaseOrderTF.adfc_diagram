@@ -42,7 +42,7 @@
       <property
          name="fromOutcome">POHeadersToPODetails</property>
       <property
-         name="sdm:polyPoints">R50,548.0166,181.09766,677.02246,275.79883,L50</property>
+         name="sdm:polyPoints">R50,548.0166,181.09766,677.02246,272.29883,L46</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn5">
@@ -77,7 +77,7 @@
       <property
          name="fromOutcome">PODetailsToPOHeaders</property>
       <property
-         name="sdm:polyPoints">T56,511.17773,309.0146,510.5166,235.09766,B56</property>
+         name="sdm:polyPoints">T50,507.67773,309.0459,507.0166,235.09766,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -136,5 +136,63 @@
          name="fromOutcome">findAllXxPoline</property>
       <property
          name="sdm:polyPoints">L54,677.02246,279.29883,548.67773,363.0459,R50</property>
+   </ControlFlowCase>
+   <View
+      id="View13">
+      <property
+         name="activityId">POAcknowledgePG</property>
+      <property
+         name="x">568.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>POAcknowledgePG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">636.1953</property>
+      <property
+         name="page">/com.isup.PurchaseOrder/pages/POAcknowledgePG.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="View3"
+      to="MethodCall16">
+      <property
+         name="fromOutcome">PODetailsToAcknowledge</property>
+      <property
+         name="sdm:polyPoints">L54,466.67773,366.5459,291.35938,496.39648,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
+      from="View13"
+      to="View3">
+      <property
+         name="fromOutcome">POAcknowledgeToDetails</property>
+      <property
+         name="sdm:polyPoints">T50,568.0,581.8447,507.67773,417.0459,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall16">
+      <property
+         name="activityId">findAllXxPoline1</property>
+      <property
+         name="x">291.35938</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>findAllXxPoline1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">550.7471</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase17"
+      from="MethodCall16"
+      to="View13">
+      <property
+         name="fromOutcome">findAllXxPoline</property>
+      <property
+         name="sdm:polyPoints">R50,332.35938,550.3965,527.0,635.8447,L50</property>
    </ControlFlowCase>
 </SDM>

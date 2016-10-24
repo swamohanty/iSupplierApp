@@ -100,7 +100,7 @@
     </amx:panelGroupLayout>
     <amx:facet name="footer">
       <amx:panelGroupLayout id="pgl14" layout="horizontal" halign="center" valign="middle">
-        <amx:commandButton text="Acknowledge" id="cb1" styleClass="goWideButtonSel"/>
+        <amx:commandButton text="Acknowledge" id="cb1" styleClass="goWideButtonSel" action="PODetailsToAcknowledge"/>
         <amx:commandButton text="Request Change" id="cb2" styleClass="goWideButtonSel"/>
       </amx:panelGroupLayout>
     </amx:facet>

@@ -25,6 +25,15 @@
         <fixed-outcome>findAllXxPoline</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="POAcknowledgePG">
+      <page>/com.isup.PurchaseOrder/pages/POAcknowledgePG.amx</page>
+    </view>
+    <method-call id="findAllXxPoline1">
+      <method>#{bindings.findAllXxPoline.execute}</method>
+      <outcome>
+        <fixed-outcome>findAllXxPoline</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>POHeadersPG</from-activity-id>
       <control-flow-case id="__2">
@@ -46,6 +55,10 @@
         <from-outcome>PODetailsToReturn</from-outcome>
         <to-activity-id>returnToLanding</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>PODetailsToAcknowledge</from-outcome>
+        <to-activity-id>findAllXxPoline1</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__7">
       <from-activity-id>findAllXxPoheader</from-activity-id>
@@ -59,6 +72,20 @@
       <control-flow-case id="__10">
         <from-outcome>findAllXxPoline</from-outcome>
         <to-activity-id>PODetailsPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>POAcknowledgePG</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>POAcknowledgeToDetails</from-outcome>
+        <to-activity-id>PODetailsPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>findAllXxPoline1</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>findAllXxPoline</from-outcome>
+        <to-activity-id>POAcknowledgePG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
